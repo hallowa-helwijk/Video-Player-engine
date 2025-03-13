@@ -1,0 +1,414 @@
+<!DOCTYPE html><head><style type="text/css">
+
+
+<style type="text/css">
+    :root {--colorFg:#d3d9e3;--colorFgIntense:#f9ffff;--colorBg:#2e2f37;--colorBgDark:#282931;--colorBgIntense:#1b1c24;--colorHighlightBg:#6590fd;--colorHighlightFg:#ffffff;--colorBorder:#1b1c24;--colorErrorBg:#c64539;--colorErrorFg:#ffffff;--radius:6px;--quoteLvl1:#fec9fc;--quoteLvl2:#fed1b5;--quoteLvl3:#8af261;}
+    html {
+      background: var(--colorBgIntense);
+      background: -webkit-linear-gradient(to right, #FF8C00, #008000, #FF8C00);
+      background: linear-gradient(to right, #FF8C00, #008000, #FF8C00);
+      color: var(--colorFgIntense);
+      font-family: sans-serif;
+      overflow-y: auto;
+    }
+    body {
+      margin: 14px;
+      height: auto !important;
+      min-height: calc(100% - 48px);
+    }
+    body > main {
+      font-size: initial;
+      /* feeds should not be using these variables */
+      /* prevent the feed from copying a custom theme for phishing */
+      --colorBg: white;
+      --colorFg: black;
+    }
+    body > main a {
+      color: var(--colorHighlightBg);
+    }
+    body > nav ul.mainbutton a {
+      display: inline-block;
+      padding: 0.3em 12px;
+      font-size: initial;
+      color: var(--colorHighlightFg);
+      background-color: var(--colorHighlightBg);
+      border-radius: 4px;
+    }
+    body > nav ul.mainbutton::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid var(--colorBorder);
+      height: 0.7em;
+      opacity: 0.3;
+    }
+    body > nav h2,
+    body > section h2 {
+      font-weight: normal;
+      font-size: larger;
+    }
+    body > nav h2::after,
+    body > section h2::after {
+      content: ":";
+    }
+    body > nav ul,
+    body > nav li {
+      display: block;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    body > nav a {
+      color: var(--colorHighlightBg);
+      text-decoration: none;
+    }
+    body > section img,
+    body > section video,
+    main img,
+    main video,
+    main image,
+    main image,
+    main object,
+    main embed {
+      max-width: 100%;
+      /* allow default image ratio to work in cases where height has been set */
+      height: auto !important;
+    }
+    main iframe {
+      border-radius: var(--radius);
+      border: none;
+      max-width: 100%;
+    }
+    body > footer {
+      opacity: 0.5;
+    }
+
+    div.video-wrapper {
+      background: #111;
+      margin-left: -24px;
+      margin-top: -24px;
+      margin-right: -24px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div.video-wrapper iframe {
+      --cinema-mode-height: 40vw;
+      height: var(--cinema-mode-height);
+      width: calc(var(--cinema-mode-height) / .5625);
+      min-height: 320px;
+      max-height: 100vh;
+    }
+
+    div.preformatted {
+      white-space: pre-wrap;
+    }
+
+    /* Overrides for specific feed issues */
+    main figure[style*="width"] {
+      /* WordPress hard codes a width which creates scrollbars.
+      Max-width does not fix it because of the default margin.
+      Fix it without breaking feeds that have floating figures. Assume that if
+      a figure has a style attribute with width, it is probably not well
+      styled, and width should be ignored. */
+      width: auto !important;
+    }
+    .x1button {
+    display: inline-block;
+    background-color: darkblue;
+    color: white;
+    padding: .75vh 1.5vw;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+   .x1button:hover {
+    color: white;
+    background-color: blue;
+  }
+   .vivaldibutton {
+    display: inline-block;
+    background-color: darkred;
+    color: white;
+    padding: .75vh 1.5vw;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+   .vivaldibutton:hover {
+    color: white;
+    background-color: red;
+  }
+   .x3button {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    padding: .75vh 1.5vw;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+   .x3button:hover {
+    color: white;
+    background-color: black;
+  }
+   .x4button {
+    display: inline-block;
+    background-color: #e84393;
+    color: white;
+    padding: .75vh 1.5vw;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+   .x4button:hover {
+    color: white;
+    background-color: #fd79a8;
+  }
+   .x5button {
+    display: inline-block;
+    background-color: #800080;
+    color: white;
+    padding: .75vh 1.5vw;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+   .x5button:hover {
+    color: white;
+    background-color: #fd79a8;
+  }
+   .x6button {
+    display: inline-block;
+    background-color: #000080;
+    color: white;
+    padding: .75vh 1.5vw;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+   .x6button:hover {
+    color: white;
+    background-color: #fd79a8;
+  }
+  .x7button {
+    display: inline-block;
+    background-color: #008000;
+    color: white;
+    padding: .75vh 1.5vw;
+    margin: 5px;
+    border-radius: 5px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+   .x7button:hover {
+    color: white;
+    background-color: #fd79a8;
+  }
+    </style>
+</head>
+<body><main><center>
+
+<body translate="no" data-vivaldi-translated="">
+ 
+ <input type="checkbox" id="switcher">
+<div class="license" style="background-color: rgb(255,0,0);">
+
+ <center><div id="newsspec-19854-app" class="news-app-promo">
+    <div class="news-app-promo-text">
+           <div class="license" style="background-color: rgb(255.127,80);"> <center>
+<center><p><h3>Hi all, it is not the intention to download movies. If you do, there is a chance that you will get a virus warning. Thanks for your cooperation.</h3></p> 
+<p><h3>Of course you can sponsor me (ETN) by clicking the button. A donation site will appear in the player, you can scroll down. You can pay with MetaMask.</h3></p>
+</center>
+  </div>       
+    
+   <div class="body" data-editable="body" data-editable-mode="meditor"><div class="license" style="background: linear-gradient(to right, #FF8C00, #008000, #FF8C00);">
+           <div class="license" style="background-color: rgb(10, 47, 143);"> <center>
+  <marquee class="marq"
+                 bgcolor="#0000FF"
+                 direction="center"
+                 loop="">
+     <a href="https://buymecoffee-electroneum.pages.dev/index.html?wallet_id=0x597572B4F767278aE3c2AB03be7145458F4FA41d&creator_name=XIPFS" class="vivaldibutton" class="vivaldibutton" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">☕ Support XIPFS with ETN</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x5c47209ca333e33b8f52e6a820cf8f495e8c831ea29c64c2cbada4e8a78a38ba/" class="x1button" class="x1button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 3</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x3b470353367110d4a05f2961db3ba95fd83448e7db5a9b9df72cabb10bea75c5/" class="x3button" class="x3button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 2</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x2d78d079ef8c435885693a976ded81af1a4a9ec51d516d202b3c68601fd177b2/" class="x5button" class="x5button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 1</a>
+             <a href="https://buymecoffee-electroneum.pages.dev/index.html?wallet_id=0x597572B4F767278aE3c2AB03be7145458F4FA41d&creator_name=XIPFS" class="x7button" class="x7button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">☕ Support XIPFS with ETN</a>
+     <a href="https://buymecoffee-electroneum.pages.dev/index.html?wallet_id=0x597572B4F767278aE3c2AB03be7145458F4FA41d&creator_name=XIPFS" class="vivaldibutton" class="vivaldibutton" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">☕ Support XIPFS with ETN</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x5c47209ca333e33b8f52e6a820cf8f495e8c831ea29c64c2cbada4e8a78a38ba/" class="x1button" class="x1button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 3</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x3b470353367110d4a05f2961db3ba95fd83448e7db5a9b9df72cabb10bea75c5/" class="x3button" class="x3button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 2</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x2d78d079ef8c435885693a976ded81af1a4a9ec51d516d202b3c68601fd177b2/" class="x5button" class="x5button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 1</a>
+             <a href="https://buymecoffee-electroneum.pages.dev/index.html?wallet_id=0x597572B4F767278aE3c2AB03be7145458F4FA41d&creator_name=XIPFS" class="x7button" class="x7button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">☕ Support XIPFS with ETN</a>
+        </marquee>
+  <br><br>    
+
+   <section class="video-container">
+  <div class="video-player">
+    <!-- Include the default video to be viewed --><center><iframe name="ifrm" id="ifrm" width="640" height="360"src="https://data.thetaedgestore.com/api/v2/data/0x2d78d079ef8c435885693a976ded81af1a4a9ec51d516d202b3c68601fd177b2/" title="intro_video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></center>
+
+
+<br>
+           <div class="license" style="background-color: rgb(10, 47, 143);"> <center>
+  <marquee class="marq"
+                 bgcolor="#0000FF"
+                 direction="center"
+                 loop="">
+                 <a href="https://buymecoffee-electroneum.pages.dev/index.html?wallet_id=0x597572B4F767278aE3c2AB03be7145458F4FA41d&creator_name=XIPFS" class="vivaldibutton" class="vivaldibutton" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">☕ Support XIPFS with ETN</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x5c47209ca333e33b8f52e6a820cf8f495e8c831ea29c64c2cbada4e8a78a38ba/" class="x1button" class="x1button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 3</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x3b470353367110d4a05f2961db3ba95fd83448e7db5a9b9df72cabb10bea75c5/" class="x3button" class="x3button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 2</a>
+     <a href="https://data.thetaedgestore.com/api/v2/data/0x2d78d079ef8c435885693a976ded81af1a4a9ec51d516d202b3c68601fd177b2/" class="x5button" class="x5button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">Caminandes 1</a>
+             <a href="https://buymecoffee-electroneum.pages.dev/index.html?wallet_id=0x597572B4F767278aE3c2AB03be7145458F4FA41d&creator_name=XIPFS" class="x7button" class="x7button" onclick="return loadIframe(&#39;ifrm&#39;, this.href);">☕ Support XIPFS with ETN</a>
+        </marquee>
+             </center>
+  </div>
+      </div>
+    </div>
+</main>
+ 
+  <script src="https://data.thetaedgestore.com/api/v2/data/0xa8dcf996d8577e63122522c48c8e19b79f9de92ed2017aaabc290b5e62d581ab/"></script>
+  <script src="https://data.thetaedgestore.com/api/v2/data/0xefa1050e0f9065f7c73c478eebe1259969eff11c7230dcd18ea9da8bd6e8be1c/"></script>
+  <script defer="" src="https://data.thetaedgestore.com/api/v2/data/0xa69a1431fa2b616c4d42c0833a30e82fb29d4c4f2fa04119ff4f1027c5d3517c/" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+
+
+    <script id="rendered-js">
+const qrCodeImage = document.querySelector('img');
+const fields = document.querySelectorAll('[name]');
+Array.from(fields).forEach(field => {
+  field.addEventListener('input', event => {
+    const {
+      name,
+      value } =
+    event.target;
+
+    switch (name) {
+      case 'colorlight':
+      case 'colordark':
+        qrCodeImage.setAttribute(name, value + 'ff');
+        break;
+      case 'cover':
+        const file = event.target.files[0];
+        const fileReader = new FileReader();
+        fileReader.onload = () => {
+          qrCodeImage.setAttribute(name, fileReader.result);
+        };
+        fileReader.readAsDataURL(file);
+        break;
+      default:
+        qrCodeImage.setAttribute(name, value);}
+
+  }, false);
+});
+
+    </script>
+ <script src="https://ipfs.io/ipfs/QmRbr6GPmMaXViCSY6fErfB14WWdCMBESyRzTPdk6VvjDu#x-ipfs-companion-no-redirect"></script>
+
+  <script id="videotpl" type="text/template">
+  {{#videos}}
+    <li><a href="{{url}}" onclick="return loadIframe('ifrm', this.href);">{{{title}}}</a></li>
+  {{/videos}}
+</script>
+
+      <script id="rendered-js">
+// Streams in the data from the JSON file
+$(function () {
+  $.getJSON('./videost1_2.js', function (data) {
+    var template = $('#videotpl').html();
+    var html = Mustache.to_html(template, data);
+    $('#video-list').html(html);
+  });
+});
+
+// Changest the url of the iframe
+function loadIframe(iframeName, url) {
+  var $iframe = $('#' + iframeName);
+  if ($iframe.length) {
+    $iframe.attr('src', url);
+    return false;
+  }
+  return true;
+}
+
+    </script>
+<style>
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "lato";
+  margin: 0;
+}
+
+h1 {
+  letter-spacing: 3px;
+}
+
+.li-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: space-between;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1920px;
+}
+
+.license {
+  background-color: #eee;
+  border-radius: 20px;
+  box-shadow: 0 3px 15px rgba(100, 100, 100, 0,5);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+}
+
+.license .img-container {
+  borde-radius: 50%;
+  height: 400px;
+  width: 400px;
+}
+
+.license .img-container img {
+  margin-top: 1px;
+  max-width: 100%;
+   width: 22rem;
+  border-radius: 1.5rem;
+  padding: 0.50rem;
+  text-decoration: none;
+  color: inherit;
+  background-color: rgba(51, 51, 51, 0.6);
+  transition: all 400ms ease;
+}
+}
+
+.license .info {
+  margin-top: 20px;
+}
+
+.license .number {
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 0.8em;
+  padding: 5px 10px;
+}
+
+.license .name {
+  margin: 15px;
+  letter-spacing: 1px;
+}
+</style>
+        </div>
+      </div>
+    </div> 
+    </body></html>
