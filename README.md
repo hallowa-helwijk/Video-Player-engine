@@ -1,4 +1,4 @@
-Eenvoudige videospeler.
-Als u uw video aan deze speler wilt toevoegen, kunt u een aanvraag indienen.
-Het moet een instructievideo zijn en de video moet door jou gemaakt zijn.
-Zo niet, dan is uw onderzoek zinloos.
+Simple video player.
+If you want to add your video to this player, you can submit a request.
+It must be an instructional video and the video must be made by you.
+If not, your request is pointless.
