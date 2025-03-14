@@ -1,4 +1,1 @@
-Simple decentralized video player.
-If you want to add your video to this player, you can submit a request.
-It must be an instructional video and the video must be made by you.
-If not, your request is pointless.
+Simple decentralized video player. If you want to add your video to this player, you can submit a request. It must be an instructional video and the video must be made by you. If not, your request is pointless.
